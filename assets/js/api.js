@@ -2,7 +2,7 @@ const cardElement = document.querySelector('#card')
 
 const listUsers = async () => {
     try {
-        const response = await fetch("http://localhost:5000/personas");
+        const response = await fetch("https://api-turismo.dev-soft.es/paquetes");
         const datos = await response.json();
         console.log(datos)
         let content = ``;
@@ -13,13 +13,15 @@ const listUsers = async () => {
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div class="modal-content text-bg-dark">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">${dato.detalle.origen} - ${dato.detalle.destino} (${dato.detalle.turno})</h1>
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">${dato.origen} - ${dato.destino} (${dato.turno})</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>Origen: ${dato.detalle.origen}</p>
-                                <span>Destino: ${dato.detalle.destino}</span>
+                                <p>Origen: ${dato.origen}</p>
+                                <span>Destino: ${dato.destino}</span>
+                                <p>Costo: ${dato.costo}</p>
+                                <span>Dias: ${dato.duracion} </span>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -30,7 +32,7 @@ const listUsers = async () => {
             </div>
             <div class="col">
                 <div class="card h-100 text-bg-dark mb-3">
-                    <img src="${dato.imagen}" class="card-img-top" alt="...">
+                    <img src="${dato.imagen1}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${dato.titulo}</h5>
                             <p class="card-text">${dato.descripcion}</p>
