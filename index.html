@@ -44,7 +44,7 @@
     <div class="container my-3">
         <div id="chat">
             <section class="side-bar">
-                <button>New Chat</button>
+                <button class="new-chat">New Chat</button>
                 <div class="history"></div>
                 <nav class="nav-chat">
                     <p>Made By Grupo FrontEnd</p>
@@ -52,7 +52,7 @@
             </section>
             <section class="main">
                 <h1>Grupo FrontEnd</h1>
-                <p id="output"></p>
+                <p id="output" onchange="leerTexto()"></p>
                 <div class="bottom-section">
                     <div class="input-container">
                         <input type="text" id="input-voz">
@@ -71,6 +71,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/app.js"></script>
 </body>
 
 </html>

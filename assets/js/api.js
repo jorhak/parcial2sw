@@ -55,7 +55,7 @@ const listUsers = async () => {
 
 listUsers()
 
-const inputElement = document.querySelector("#input-voz")
+const inputVozElement = document.querySelector("#input-voz")
 const recognition = new webkitSpeechRecognition();
 
 recognition.continuous = true;
@@ -71,7 +71,7 @@ window.onload = () => {
 recognition.onresult = (event) => {
     const texto = event.results[event.results.length - 1][0].transcript;
     console.log(texto)
-    inputElement.value = texto;
+    inputVozElement.value = texto;
 }
 
 function leerTexto(text){
@@ -84,4 +84,4 @@ function leerTexto(text){
     window.speechSynthesis.speak(speech);
 }
 
-inputElement.addEventListener('change', leerTexto(inputElement.value))
+inputVozElement.addEventListener('change', leerTexto(inputVozElement.value))

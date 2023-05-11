@@ -1,5 +1,6 @@
 const btnComenzar = document.getElementById('comenzar');
 const btnDetener = document.getElementById('detener');
+const btnReproducir = document.getElementById('reproducir')
 const textArea = document.getElementById('textArea');
 
 const recognition = new webkitSpeechRecognition();
@@ -20,10 +21,13 @@ recognition.onresult = (event) => {
     const texto = event.results[event.results.length -1 ][0].transcript;
     console.log(texto)
     textArea.value = texto;
+    leerTexto()
 }
 
-function leerTexto(text){
-    const speech = new SpeechSynthesisUtterance(text);
+
+
+function leerTexto(){
+    const speech = new SpeechSynthesisUtterance(textArea.value);
     speech.volume = 1;
     speech.rate = 0.8;
     speech.pitch = 0.4;
@@ -31,3 +35,9 @@ function leerTexto(text){
 
     window.speechSynthesis.speak(speech);
 }
+
+btnReproducir.addEventListener('click', ()=>{
+    leerTexto()
+});
+
+

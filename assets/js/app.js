@@ -1,9 +1,9 @@
-const API_KEY = ''
+const API_KEY = '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'
 const submitButton = document.querySelector('#submit')
 const outPutElement = document.querySelector('#output')
 const inputElement = document.querySelector('input')
 const historyElement = document.querySelector('.history')
-const buttonElement = document.querySelector('button')
+const buttonElement = document.querySelector('.new-chat')
 
 function changeInput(value){
     const inputElement = document.querySelector('input')
@@ -26,6 +26,8 @@ async function getMessage(){
     }
     try
     {
+
+        /*http://localhost:3000/api/mensaje?text=mensa a mandar &idCliente=null &idPaquete=null*/
         const response = await fetch('https://api.openai.com/v1/chat/completions', options)
         const data = await response.json()
         console.log(data)
@@ -36,6 +38,7 @@ async function getMessage(){
             pElement.addEventListener('click', () => changeInput(pElement.textContent))
             historyElement.append(pElement)
         }
+        leerTexto()
 
         console.log(data)
     } catch (error) {
@@ -48,5 +51,16 @@ submitButton.addEventListener('click',getMessage)
 function clear(){
     inputElement.value = ''
 }
-buttonElement.addEventListener('click', clear)
+
+buttonElement.addEventListener('click',clear)
+
+function leerTexto(){
+    const speech = new SpeechSynthesisUtterance(outPutElement.textContent);
+    speech.volume = 1;
+    speech.rate = 0.8;
+    speech.pitch = 0.4;
+    speech.lang = 'es-ES';
+
+    window.speechSynthesis.speak(speech);
+}
 
