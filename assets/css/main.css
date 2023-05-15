@@ -27,7 +27,13 @@ body{
     flex-direction: column;
     justify-content: space-between;
 }
+.alinear{
+    align-content: center;
+}
 
+.title-alin{
+    align-items: center;
+}
 .main{
     display: flex;
     flex-direction: column;
@@ -108,4 +114,14 @@ button{
 
 .history p{
     cursor: pointer;
+}
+
+.fotos{
+    width: 100%;
+    height: 300px;
+}
+.title-logo{
+    align-items: center;
+    width: 100%;
+    height: 300px;
 }

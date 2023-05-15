@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CANVA</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div style="width: 300px; height: 300px;">
+    <canvas id="MiGrafica" width="100px" height="100px"></canvas>
+  </div>
+</body>
+<script>
+  let miCanva = document.getElementById("MiGrafica").getContext("2d");
+  const myChart = new Chart(miCanva,{
+    type:"pie",
+    data : {
+      labels: [
+        'Buena Experiencia',
+        'Mala Experiencia',
+        'Mixta'
+      ],
+      
+      datasets: [{
+        label: 'Porcentaje de Aceptacion',
+        data: [50, 100, 100],
+        backgroundColor: [
+          'green',
+          'red',
+          'yellow',
+        ],
+        hoverOffset: 4
+      }]
+    },
+    options: {
+    plugins: {
+      legend: {
+        position: 'top',
+        display: true,
+      },
+      title: {
+        display: true,
+        text: 'ACEPTACION DEL PAQUETE'
+      }
+    }
+  },
+  });
+</script>
+</html>
