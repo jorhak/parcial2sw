@@ -6,7 +6,8 @@ export const listUsers = async () => {
         const datos = await response.json();
         console.log(datos)
         let content = ``;
-        datos.forEach((dato) => {
+        datos.forEach(async(dato) => {
+            
             content += `
 	             <div class="modal fade" id="modelo${dato.id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -21,6 +22,7 @@ export const listUsers = async () => {
                                 <span>Destino: ${dato.destino}</span>
                                 <p>Costo: ${dato.costo}</p>
                                 <span>Dias: ${dato.duracion} </span>
+                                <div id="grafico${dato.id}"></div>
                                 <form id="formulario-comentario">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="paquete" value="${dato.id}" style="display:none">
@@ -49,7 +51,7 @@ export const listUsers = async () => {
                             <p class="card-text">${dato.descripcion}</p>
                                 <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#modelo${dato.id}">
+                                data-bs-target="#modelo${dato.id}" id="card${dato.id}">
                                 Más información
                              </button>
                         </div>
@@ -58,14 +60,19 @@ export const listUsers = async () => {
 
             `;
         });
+        
         cardElement.innerHTML = content;
     } catch (ex) {
         alert(ex);
     }
 };
 
-//listUsers()
+//-----------------------
 
+
+//-----------------------
+//listUsers()
+//-----------------------
 const inputVozElement = document.querySelector("#input-voz")
 const recognition = new webkitSpeechRecognition();
 

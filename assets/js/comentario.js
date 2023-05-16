@@ -1,10 +1,13 @@
 import { listUsers } from './api.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  
-  
+
+
   // Esperar a que se carguen los datos
   listUsers().then(() => {
+    
+    
+
     // Capturar el formulario de comentarios
     const formularioComentario = document.getElementById('formulario-comentario');
     // Agregar un evento para el envío del formulario
@@ -36,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  
+
 
 });
 
