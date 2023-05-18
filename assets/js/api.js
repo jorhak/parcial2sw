@@ -2,7 +2,7 @@ const cardElement = document.querySelector("#card");
 
 export const listUsers = async () => {
   try {
-    const response = await fetch("http://localhost/reportePdf/paquetes");
+    const response = await fetch("http://localhost:8000/paquetes");
     const datos = await response.json();
     // console.log(datos);
     let content = `<div class="row row-cols-3 row-cols-md-3 g-4" > `;
@@ -66,17 +66,17 @@ export const listUsers = async () => {
                                 </div>
                                 <hr>
                                 <div class="row">
-                                  <form id="formulario-comentario">
+                                  <form id="formulario-comentario${dato.id}">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="paquete" value="${dato.id}" style="display:none">
+                                        <input type="text" class="form-control" id="paquete${dato.id}" value="${dato.id}" style="display:none">
                                         <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre">
+                                        <input type="text" class="form-control" id="nombre${dato.id}">
                                     </div>
                                     <div class="form-group">
                                         <label for="comentario">Comentario:</label>
-                                        <textarea class="form-control" rows="5" id="comentario"></textarea>
+                                        <textarea class="form-control" rows="5" id="comentario${dato.id}"></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <button type="submit" class="btn btn-primary" id="sendM${dato.id}">Enviar</button>
                                   </form>
                                 </div>
                             </div>

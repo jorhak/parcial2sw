@@ -74,7 +74,7 @@ async function getMessage() {
       idPaquete = data.idPaquete;
       leerTexto();
 
-      location.href = `http://localhost/reportePdf/reporte.php?idpaquete=${idPaquete}&idcliente=${idCliente}`;
+      location.href = `http://localhost:8000/reporte.php?idpaquete=${idPaquete}&idcliente=${idCliente}`;
     }
 
     if (data.response && inputElement.value) {
